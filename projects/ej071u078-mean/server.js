@@ -3,6 +3,34 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+////////////////////////////////////////////////////////
+// Conexión a la base de datos MongoDB a traves de Mongoose
+
+var dbURI = 'mongodb://localhost/db_mean';
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true});
+
+// Configuracion de los eventos de la conexión Mongoose
+mongoose.connection.on('connected', function () {
+  console.log('Mongoose default connection open to ' + dbURI);
+});
+
+mongoose.connection.on('error',function (err) {
+  console.log('Mongoose default connection error: ' + err);
+});
+
+mongoose.connection.on('disconnected', function () {
+  console.log('Mongoose default connection disconnected');
+});
+
+// Si el proceso 'Node' termina, se cierra la conexión Mongoose
+process.on('SIGINT', function() {
+  mongoose.connection.close(function () {
+    console.log('Mongoose default connection disconnected through app termination');
+    process.exit(0);
+  });
+});
 
 ////////////////////////////////////////////////////////
 // Creamos la aplicacion express y la configuramos...

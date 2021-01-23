@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 // Conexión a la base de datos MongoDB a traves de Mongoose
 
 var dbURI = 'mongodb://localhost/db_mean';
-mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 // Configuracion de los eventos de la conexión Mongoose
 mongoose.connection.on('connected', function () {

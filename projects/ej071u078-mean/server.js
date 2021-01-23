@@ -49,6 +49,8 @@ app.get('/api', (req, res) => {
   res.send('La API funciona');
 });
 
+require('./server/routes/tarea')(app);
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../dist/ej071u078-mean/index.html'));
 });

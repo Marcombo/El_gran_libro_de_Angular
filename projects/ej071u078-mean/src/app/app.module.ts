@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditTareaComponent } from './edit-tarea/edit-tarea.component';
 import { TareaListaComponent } from './tarea-lista/tarea-lista.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TareaService } from './shared/tarea.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { TareaListaComponent } from './tarea-lista/tarea-lista.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TareaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

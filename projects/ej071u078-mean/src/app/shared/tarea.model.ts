@@ -4,9 +4,9 @@ export var TareaEstadosSelect = [{value: "Por hacer"}, {value: "En progreso"}, {
 
 export class TareaModel {
     constructor(
-    	public _id: string,
-      public titulo: string,
-      public fecha: Date,
-      public estado: TareaEstados
+      public _id: string | undefined = undefined,
+      public titulo: string = '',
+      public fecha: Date = new Date(),
+      public estado: TareaEstados = "Por hacer"
 	) {}
 }

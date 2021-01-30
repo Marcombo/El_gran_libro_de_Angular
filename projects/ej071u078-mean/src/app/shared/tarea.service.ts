@@ -10,4 +10,13 @@ export class TareaService {
   getAllTareas(): Observable<TareaModel[]> {
     return this.http.get<TareaModel[]>('http://localhost:3000/api/tareas');
   }
+  getTarea(id: string): Observable<TareaModel>{
+    return this.http.get<TareaModel>('http://localhost:3000/api/tareas/' + id);
+  }  
+  addTarea(tarea: TareaModel): Observable<TareaModel>{
+    return this.http.post<TareaModel>('http://localhost:3000/api/tareas', { titulo: tarea.titulo, fecha: tarea.fecha, estado: tarea.estado});
+  }
+  updateTarea(tarea: TareaModel): Observable<TareaModel>{
+    return this.http.put<TareaModel>('http://localhost:3000/api/tareas/' + tarea._id, { titulo: tarea.titulo, fecha: tarea.fecha, estado: tarea.estado});
+  }
 }

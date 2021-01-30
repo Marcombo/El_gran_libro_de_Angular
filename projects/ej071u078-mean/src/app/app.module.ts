@@ -7,6 +7,7 @@ import { EditTareaComponent } from './edit-tarea/edit-tarea.component';
 import { TareaListaComponent } from './tarea-lista/tarea-lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TareaService } from './shared/tarea.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TareaService } from './shared/tarea.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [TareaService],
   bootstrap: [AppComponent]

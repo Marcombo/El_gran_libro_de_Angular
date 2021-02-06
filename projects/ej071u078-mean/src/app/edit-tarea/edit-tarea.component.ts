@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TareaModel } from '../shared/tarea.model';
+import { TareaEstadosSelect, TareaNew, TareaModel } from '../shared/tarea.model';
 import { TareaService } from '../shared/tarea.service';
 import { map, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-edit-tarea',
@@ -11,16 +11,24 @@ import { of } from 'rxjs';
   styleUrls: ['./edit-tarea.component.scss']
 })
 export class EditTareaComponent implements OnInit {
-  tarea: TareaModel | undefined = undefined;
+  tarea: TareaNew | TareaModel | undefined = undefined;
+  tareaEstadosSelect = TareaEstadosSelect;
+  title = '';
 
   constructor(private route: ActivatedRoute, private router: Router, private tareaService: TareaService) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
       map(params => params.get('id')),
-      switchMap(id => 
-        (id ? this.tareaService.getTarea(id) : of(new TareaModel()))
-      )
+      switchMap(id => {
+        if (id) {
+          this.title = 'Modificar Tarea';
+          return this.tareaService.getTarea(id);
+        } else {
+          this.title = 'Crear Tarea';
+          return of(new TareaNew());
+        }
+      })
     ).subscribe(
       tarea => {this.tarea = tarea; console.log(tarea);}, 
       error => {console.log(error)}
@@ -30,11 +38,11 @@ export class EditTareaComponent implements OnInit {
   onSubmit(){
     if (!this.tarea) return;
 
-    if (this.tarea._id)
-      this.tareaService.updateTarea(this.tarea)
+    if (this.tarea instanceof TareaNew)
+      this.tareaService.addTarea(this.tarea)
         .subscribe(data => {console.log(data); this.router.navigate(['/tareas']);},error=>console.log(error));
     else
-      this.tareaService.addTarea(this.tarea)
+      this.tareaService.updateTarea(this.tarea)
         .subscribe(data => {console.log(data); this.router.navigate(['/tareas']);},error=>console.log(error));
   }
 }

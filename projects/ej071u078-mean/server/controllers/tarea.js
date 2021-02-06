@@ -32,7 +32,7 @@ exports.update_tarea = function(req, res) {
 };
 
 exports.delete_tarea = function(req, res) {
-  Tarea.remove({_id: req.params.tareaId}, function(err, tarea) {
+  Tarea.deleteOne({_id: req.params.tareaId}, function(err, tarea) {
     if (err) res.send(err);
     res.json({ message: 'Tarea eliminada correctamente' });
   });

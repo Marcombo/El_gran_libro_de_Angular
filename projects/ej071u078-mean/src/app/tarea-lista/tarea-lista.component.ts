@@ -18,4 +18,12 @@ export class TareaListaComponent implements OnInit {
 
   ngOnInit() {    
   }
+
+  deleteTarea(id: string) {    
+    this.tareaService.deleteTarea(id)
+      .subscribe(
+        data=> {console.log(data); this.tareas = this.tareaService.getAllTareas();},
+        error=> console.log(error)
+      );    
+  }
 }

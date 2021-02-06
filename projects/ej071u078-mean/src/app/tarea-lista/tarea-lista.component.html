@@ -23,7 +23,7 @@
                     <td class="col-sm-2"><i>{{tarea.fecha | date:'dd-MM-yyyy'}}</i></td>
                     <td class="col-sm-2"><i>{{tarea.estado}}</i></td>
                     <td class="col-sm-1"><a class="btn btn-info" [routerLink]="['/tareas',tarea._id,'edit']">Edit</a></td>
-                    <td class="col-sm-1"><a class="btn btn-danger">-</a></td>
+                    <td class="col-sm-1"><a class="btn btn-danger" (click)="deleteTarea(tarea._id)">-</a></td>
                   </tr>
               </tbody>
           </table>

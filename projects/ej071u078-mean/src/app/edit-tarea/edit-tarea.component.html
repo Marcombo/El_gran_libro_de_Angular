@@ -1,0 +1,42 @@
+
+<div class="container" *ngIf="tarea"><br>
+  <div class="row">
+      <div class="col-sm-12">
+          <div class="page-header">
+            <h5>{{title}}</h5>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-12">
+          <form (ngSubmit)="onSubmit()" #tareaForm="ngForm">
+              <fieldset class="form-group">
+                  <div class="col-sm-12">
+                      <label class="control-label" for="titulo">Titulo</label>
+                      <input type="text" class="form-control" required [(ngModel)]="tarea.titulo" name="titulo">
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <div class="col-sm-3">
+                      <label class="control-label" for="fecha">Fecha</label>
+                      <input type="date" class="form-control" required [ngModel]="tarea.fecha | date: 'yyyy-MM-dd'" (ngModelChange)="tarea.fecha=$event" name="fecha"/>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <div class="col-sm-3">
+                      <label class="control-label" for="estado">Estado</label>
+                      <select class="form-control" required [(ngModel)]="tarea.estado" name="estado">
+                          <option *ngFor="let estado of tareaEstadosSelect" [value]="estado.value">{{estado.value}}</option>
+                      </select>
+                  </div>
+              </fieldset>
+              <fieldset class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-primary" [disabled]="!tareaForm.form.valid">Submit</button>
+                  </div>
+              </fieldset>
+          </form>
+      </div>
+  </div>
+</div>
+  

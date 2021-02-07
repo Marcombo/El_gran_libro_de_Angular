@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+<h1>{{title}}</h1>
+<div class="container">
+ <table class="table table-bordered table-hover">
+     <tr>
+         <td><input type="checkbox" name="ponFondo" [(ngModel)]="ponFondo">Fondo<br><br></td>
+         <td><div [class.fondo]="ponFondo">Hola</div></td>
+     </tr>
+     <tr>
+         <td colspan="2"><a [href]="referencia" target="_blank">{{ referencia }}</a></td>
+     </tr>
+     <tr>
+         <td><button class="btn btn-primary btn-success tamB" (click)="mostrar=!mostrar"><span>{{ mostrar ? 'Mostrar' : 'Ocultar' }}</span></button></td>
+         <td><div [hidden]="mostrar"><h2>Se ve</h2></div></td>
+     </tr>
+     <tr>
+         <td><button class="btn btn-primary tamB" (click)="habilitar=!habilitar">{{ habilitar ? 'Habilitar' : 'Deshabilitar' }}</button></td>
+         <td><button [disabled]="habilitar" class="btn btn-outline-primary tamB">Prueba</button></td>
+     </tr>
+ </table>
+</div>

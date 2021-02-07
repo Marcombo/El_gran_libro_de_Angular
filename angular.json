@@ -470,6 +470,122 @@
           }
         }
       }
+    },
+    "ej016u017-cmpinline": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej016u017-cmpinline",
+      "sourceRoot": "projects/ej016u017-cmpinline/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej016u017-cmpinline",
+            "index": "projects/ej016u017-cmpinline/src/index.html",
+            "main": "projects/ej016u017-cmpinline/src/main.ts",
+            "polyfills": "projects/ej016u017-cmpinline/src/polyfills.ts",
+            "tsConfig": "projects/ej016u017-cmpinline/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej016u017-cmpinline/src/favicon.ico",
+              "projects/ej016u017-cmpinline/src/assets"
+            ],
+            "styles": [
+              "projects/ej016u017-cmpinline/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej016u017-cmpinline/src/environments/environment.ts",
+                  "with": "projects/ej016u017-cmpinline/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej016u017-cmpinline:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej016u017-cmpinline:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej016u017-cmpinline:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej016u017-cmpinline/src/test.ts",
+            "polyfills": "projects/ej016u017-cmpinline/src/polyfills.ts",
+            "tsConfig": "projects/ej016u017-cmpinline/tsconfig.spec.json",
+            "karmaConfig": "projects/ej016u017-cmpinline/karma.conf.js",
+            "assets": [
+              "projects/ej016u017-cmpinline/src/favicon.ico",
+              "projects/ej016u017-cmpinline/src/assets"
+            ],
+            "styles": [
+              "projects/ej016u017-cmpinline/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej016u017-cmpinline/tsconfig.app.json",
+              "projects/ej016u017-cmpinline/tsconfig.spec.json",
+              "projects/ej016u017-cmpinline/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej016u017-cmpinline/e2e/protractor.conf.js",
+            "devServerTarget": "ej016u017-cmpinline:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej016u017-cmpinline:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

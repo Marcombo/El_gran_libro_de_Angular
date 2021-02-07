@@ -818,6 +818,122 @@
           }
         }
       }
+    },
+    "ej020-decora": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej020-decora",
+      "sourceRoot": "projects/ej020-decora/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej020-decora",
+            "index": "projects/ej020-decora/src/index.html",
+            "main": "projects/ej020-decora/src/main.ts",
+            "polyfills": "projects/ej020-decora/src/polyfills.ts",
+            "tsConfig": "projects/ej020-decora/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej020-decora/src/favicon.ico",
+              "projects/ej020-decora/src/assets"
+            ],
+            "styles": [
+              "projects/ej020-decora/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej020-decora/src/environments/environment.ts",
+                  "with": "projects/ej020-decora/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej020-decora:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej020-decora:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej020-decora:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej020-decora/src/test.ts",
+            "polyfills": "projects/ej020-decora/src/polyfills.ts",
+            "tsConfig": "projects/ej020-decora/tsconfig.spec.json",
+            "karmaConfig": "projects/ej020-decora/karma.conf.js",
+            "assets": [
+              "projects/ej020-decora/src/favicon.ico",
+              "projects/ej020-decora/src/assets"
+            ],
+            "styles": [
+              "projects/ej020-decora/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej020-decora/tsconfig.app.json",
+              "projects/ej020-decora/tsconfig.spec.json",
+              "projects/ej020-decora/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej020-decora/e2e/protractor.conf.js",
+            "devServerTarget": "ej020-decora:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej020-decora:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

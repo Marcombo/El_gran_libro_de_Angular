@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1>
+<button type="button" class="btn btn-success tamB" (click)="grupo1=!grupo1">
+  Grupo1. (grupo1 = {{grupo1}})</button><br>
+<div *ngIf="grupo1" class="uno">Grupo1.<br>
+  <button type="button" class="btn btn-primary tamB" (click)="subgrupo11=!subgrupo11">Subgrupo11. (subgrupo11 = {{subgrupo11}})</button><br>
+  <div *ngIf="subgrupo11" class="dos">Subgrupo11<br></div>
+  <button type="button" class="btn btn-primary tamB" (click)="subgrupo12=!subgrupo12">
+    Subgrupo12. (subgrupo12 = {{subgrupo12}})</button><br>
+  <div *ngIf="subgrupo12" class="dos">Subgrupo12<br></div>
+</div>
+<br>
+<button type="button" class="btn btn-success tamB" (click)="grupo2=!grupo2">
+  Grupo2. (grupo2 = {{grupo2}})</button><br>
+<div *ngIf="grupo2" class="uno">Grupo2.<br>
+  <button type="button" class="btn btn-primary tamB" (click)="subgrupo21=!subgrupo21">
+    Subgrupo21. (subgrupo21 = {{subgrupo21}})</button><br>
+  <div *ngIf="subgrupo21" class="dos">Subgrupo21<br></div>
+  <button type="button" class="btn btn-primary tamB" (click)="subgrupo22=!subgrupo22">
+    Subgrupo22. (subgrupo22 = {{subgrupo22}})</button><br>
+  <div *ngIf="subgrupo22" class="dos">Subgrupo22<br></div>
+</div>

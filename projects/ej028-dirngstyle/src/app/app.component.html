@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1><br>
+<div class="container" [ngStyle]="{'color': color, 'font-weight': 'bold', 'font-size': '150%'}">Texto2</div>
+<br>
+<div class="container div1">
+  <input type="checkbox" name="hayLetraGrande" [(ngModel)]="hayLetraGrande">TamaÃ±o<br>
+  <input type="checkbox" name="hayColorFondo" [(ngModel)]="hayColorFondo">Fondo<br>
+  <input type="checkbox" name="hayLetraColor" [(ngModel)]="hayLetraColor">Color<br>
+  <input type="checkbox" name="hayLetraItalica" [(ngModel)]="hayLetraItalica">Italica<br>
+</div>
+<br>
+<div class="container div2" [ngStyle]="defineEstilos()">Texto</div>

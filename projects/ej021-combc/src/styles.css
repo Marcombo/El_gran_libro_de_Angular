@@ -1,0 +1,9 @@
+div{
+    width:250px;
+    padding: 20px;
+    display: block;
+    text-align: center;
+}
+.padre { background: #abe4b8; }
+.hijo  { background: #5af0f0; }
+.tamB  { height:53px; width:53px; font-size: 20px; }

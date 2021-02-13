@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>
+  {{title}}
+</h1>
+<div class="container"><br>
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-success" *ngFor="let nombre of nombres; let i=index">
+      <p>{{i + 1}} - </p>
+      <p>Nombre:  <b>{{ nombre.nom }}</b></p>
+      <p>, edad: <b>{{ nombre.edad}}</b></p>
+    </li>
+  </ul>
+</div>

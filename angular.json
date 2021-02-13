@@ -1630,6 +1630,122 @@
           }
         }
       }
+    },
+    "ej027-dirngmodel": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej027-dirngmodel",
+      "sourceRoot": "projects/ej027-dirngmodel/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej027-dirngmodel",
+            "index": "projects/ej027-dirngmodel/src/index.html",
+            "main": "projects/ej027-dirngmodel/src/main.ts",
+            "polyfills": "projects/ej027-dirngmodel/src/polyfills.ts",
+            "tsConfig": "projects/ej027-dirngmodel/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej027-dirngmodel/src/favicon.ico",
+              "projects/ej027-dirngmodel/src/assets"
+            ],
+            "styles": [
+              "projects/ej027-dirngmodel/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej027-dirngmodel/src/environments/environment.ts",
+                  "with": "projects/ej027-dirngmodel/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej027-dirngmodel:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej027-dirngmodel:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej027-dirngmodel:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej027-dirngmodel/src/test.ts",
+            "polyfills": "projects/ej027-dirngmodel/src/polyfills.ts",
+            "tsConfig": "projects/ej027-dirngmodel/tsconfig.spec.json",
+            "karmaConfig": "projects/ej027-dirngmodel/karma.conf.js",
+            "assets": [
+              "projects/ej027-dirngmodel/src/favicon.ico",
+              "projects/ej027-dirngmodel/src/assets"
+            ],
+            "styles": [
+              "projects/ej027-dirngmodel/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej027-dirngmodel/tsconfig.app.json",
+              "projects/ej027-dirngmodel/tsconfig.spec.json",
+              "projects/ej027-dirngmodel/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej027-dirngmodel/e2e/protractor.conf.js",
+            "devServerTarget": "ej027-dirngmodel:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej027-dirngmodel:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1>
+<br>
+<div class="container bg" [ngSwitch]="opcion">  Valor seleccionado:
+  <div class="container text-success" *ngSwitchCase="'A'">Ha elegido la opcion: <b>A</b></div>
+  <div class="container text-success" *ngSwitchCase="'B'">Ha elegido la opcion: <b>B</b></div>
+  <div class="container text-success" *ngSwitchCase="'C'">Ha elegido la opcion: <b>C</b></div>
+  <div class="container text-danger" *ngSwitchDefault><b>Sin selección</b></div>
+</div>
+<br>
+<div class="container">
+  <button class="btn btn-primary btn-lg" (click)="opcion='A'">A</button>
+  <button class="btn btn-primary btn-md" (click)="opcion='B'">B</button>
+  <button class="btn btn-primary btn-sm" (click)="opcion='C'">C</button>
+</div>
+<br>
+<div class="container bg2"><h5>Boton pulsado : {{opcion}}</h5></div>

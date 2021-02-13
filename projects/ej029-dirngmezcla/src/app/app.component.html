@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1><br>
+<div class="container" style="text-align:center;">
+  <button type="button" class="btn btn-success tamB" (click)="mostrar=!mostrar;pares=true;impares=true">
+    Mostrar. (mostrar = {{mostrar}})</button><br><br>
+  </div>
+  <div *ngIf="mostrar" class="container divBg">
+    <input type="checkbox" [(ngModel)]="pares" name="pares">
+    <span [ngClass]="clActividad(pares)">pares</span><br>
+    <input type="checkbox" [(ngModel)]="impares" name="impares">
+    <span [ngClass]="clActividad(impares)">impares</span><br>
+    <div class="list-group-item-info" *ngFor="let numero of numeros; let i=index">
+      <div [ngSwitch]="i%2">
+        <div *ngSwitchCase="'1'">
+          <p *ngIf="pares"><span [ngStyle]="{'color': colorPar}">
+            {{i + 1}}</span> - Numero:  <b>{{ numero }}</b></p>
+        </div>
+        <div *ngSwitchCase="'0'">
+          <p *ngIf="impares"><span [ngStyle]="{'color': colorImpar}">
+            {{i + 1}}</span> - Numero:  <b>{{ numero }}</b></p>
+        </div>
+      </div>
+    </div>
+  </div>

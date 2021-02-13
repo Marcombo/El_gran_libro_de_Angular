@@ -2442,6 +2442,122 @@
           }
         }
       }
+    },
+    "ej035-pipeasyncpipe": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej035-pipeasyncpipe",
+      "sourceRoot": "projects/ej035-pipeasyncpipe/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej035-pipeasyncpipe",
+            "index": "projects/ej035-pipeasyncpipe/src/index.html",
+            "main": "projects/ej035-pipeasyncpipe/src/main.ts",
+            "polyfills": "projects/ej035-pipeasyncpipe/src/polyfills.ts",
+            "tsConfig": "projects/ej035-pipeasyncpipe/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej035-pipeasyncpipe/src/favicon.ico",
+              "projects/ej035-pipeasyncpipe/src/assets"
+            ],
+            "styles": [
+              "projects/ej035-pipeasyncpipe/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej035-pipeasyncpipe/src/environments/environment.ts",
+                  "with": "projects/ej035-pipeasyncpipe/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej035-pipeasyncpipe:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej035-pipeasyncpipe:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej035-pipeasyncpipe:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej035-pipeasyncpipe/src/test.ts",
+            "polyfills": "projects/ej035-pipeasyncpipe/src/polyfills.ts",
+            "tsConfig": "projects/ej035-pipeasyncpipe/tsconfig.spec.json",
+            "karmaConfig": "projects/ej035-pipeasyncpipe/karma.conf.js",
+            "assets": [
+              "projects/ej035-pipeasyncpipe/src/favicon.ico",
+              "projects/ej035-pipeasyncpipe/src/assets"
+            ],
+            "styles": [
+              "projects/ej035-pipeasyncpipe/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej035-pipeasyncpipe/tsconfig.app.json",
+              "projects/ej035-pipeasyncpipe/tsconfig.spec.json",
+              "projects/ej035-pipeasyncpipe/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej035-pipeasyncpipe/e2e/protractor.conf.js",
+            "devServerTarget": "ej035-pipeasyncpipe:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej035-pipeasyncpipe:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

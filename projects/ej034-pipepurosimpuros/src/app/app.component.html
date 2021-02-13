@@ -1,0 +1,7 @@
+<p><b>Pipes: Puros e Impuros</b></p>
+
+<p>Contador: {{fechas | numElem}} </p>
+<button (click)="anadirFecha()">Añadir fecha</button>
+<div *ngFor="let fecha of (fechas)">
+  <p>{{fecha | date:'medium'}}</p>
+</div>

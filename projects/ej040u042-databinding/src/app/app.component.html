@@ -11,7 +11,7 @@
     </ul>
     <div class="text-center">
       <button [disabled]="libro.cantidad<=0" (click)="downCantidad(libro)">-</button>
-      {{libro.cantidad}}
+      <input type="text" [(ngModel)]="libro.cantidad" size="2">
       <button [disabled]="libro.cantidad>=libro.stock" (click)="upCantidad(libro)">+</button>
     </div>
   </div>

@@ -2790,6 +2790,122 @@
           }
         }
       }
+    },
+    "ej039-libanima": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej039-libanima",
+      "sourceRoot": "projects/ej039-libanima/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej039-libanima",
+            "index": "projects/ej039-libanima/src/index.html",
+            "main": "projects/ej039-libanima/src/main.ts",
+            "polyfills": "projects/ej039-libanima/src/polyfills.ts",
+            "tsConfig": "projects/ej039-libanima/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej039-libanima/src/favicon.ico",
+              "projects/ej039-libanima/src/assets"
+            ],
+            "styles": [
+              "projects/ej039-libanima/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej039-libanima/src/environments/environment.ts",
+                  "with": "projects/ej039-libanima/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej039-libanima:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej039-libanima:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej039-libanima:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej039-libanima/src/test.ts",
+            "polyfills": "projects/ej039-libanima/src/polyfills.ts",
+            "tsConfig": "projects/ej039-libanima/tsconfig.spec.json",
+            "karmaConfig": "projects/ej039-libanima/karma.conf.js",
+            "assets": [
+              "projects/ej039-libanima/src/favicon.ico",
+              "projects/ej039-libanima/src/assets"
+            ],
+            "styles": [
+              "projects/ej039-libanima/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej039-libanima/tsconfig.app.json",
+              "projects/ej039-libanima/tsconfig.spec.json",
+              "projects/ej039-libanima/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej039-libanima/e2e/protractor.conf.js",
+            "devServerTarget": "ej039-libanima:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej039-libanima:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

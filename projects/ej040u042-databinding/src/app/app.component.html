@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="card" style="width: 20rem;">
+    <img class="card-img-top img-fluid" [src]="Libro.imagen" height="122" alt="Imagen no encontrada">
+    <div class="card-block">
+      <h4 class="card-title">{{Libro.titulo}}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{Libro.autor}}</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" [class.aviso]="Libro.stock==0">Unidades disponibles: {{Libro.stock}}</li>
+      <li class="list-group-item">Precio: {{Libro.precio | currency:'EUR':true}}</li>
+    </ul>
+  </div>
+</div>

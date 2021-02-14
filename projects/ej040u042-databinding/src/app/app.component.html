@@ -1,13 +1,18 @@
 <div class="container-fluid">
   <div class="card" style="width: 20rem;">
-    <img class="card-img-top img-fluid" [src]="Libro.imagen" height="122" alt="Imagen no encontrada">
+    <img class="card-img-top img-fluid" [src]="libro.imagen" (mousemove)="getCoord($event)" height="122" alt="Imagen no encontrada">
     <div class="card-block">
-      <h4 class="card-title">{{Libro.titulo}}</h4>
-      <h6 class="card-subtitle mb-2 text-muted">{{Libro.autor}}</h6>
+      <h4 class="card-title">{{libro.titulo}}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">{{libro.autor}}</h6>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item" [class.aviso]="Libro.stock==0">Unidades disponibles: {{Libro.stock}}</li>
-      <li class="list-group-item">Precio: {{Libro.precio | currency:'EUR':true}}</li>
+      <li class="list-group-item" [class.aviso]="libro.stock==0">Unidades disponibles: {{libro.stock}}</li>
+      <li class="list-group-item">Precio: {{libro.precio | currency:'EUR':true}}</li>
     </ul>
+    <div class="text-center">
+      <button [disabled]="libro.cantidad<=0" (click)="downCantidad(libro)">-</button>
+      {{libro.cantidad}}
+      <button [disabled]="libro.cantidad>=libro.stock" (click)="upCantidad(libro)">+</button>
+    </div>
   </div>
 </div>

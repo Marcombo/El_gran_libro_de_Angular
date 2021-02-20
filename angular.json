@@ -3138,6 +3138,122 @@
           }
         }
       }
+    },
+    "ej050u052-servicios": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej050u052-servicios",
+      "sourceRoot": "projects/ej050u052-servicios/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej050u052-servicios",
+            "index": "projects/ej050u052-servicios/src/index.html",
+            "main": "projects/ej050u052-servicios/src/main.ts",
+            "polyfills": "projects/ej050u052-servicios/src/polyfills.ts",
+            "tsConfig": "projects/ej050u052-servicios/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej050u052-servicios/src/favicon.ico",
+              "projects/ej050u052-servicios/src/assets"
+            ],
+            "styles": [
+              "projects/ej050u052-servicios/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej050u052-servicios/src/environments/environment.ts",
+                  "with": "projects/ej050u052-servicios/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej050u052-servicios:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej050u052-servicios:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej050u052-servicios:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej050u052-servicios/src/test.ts",
+            "polyfills": "projects/ej050u052-servicios/src/polyfills.ts",
+            "tsConfig": "projects/ej050u052-servicios/tsconfig.spec.json",
+            "karmaConfig": "projects/ej050u052-servicios/karma.conf.js",
+            "assets": [
+              "projects/ej050u052-servicios/src/favicon.ico",
+              "projects/ej050u052-servicios/src/assets"
+            ],
+            "styles": [
+              "projects/ej050u052-servicios/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej050u052-servicios/tsconfig.app.json",
+              "projects/ej050u052-servicios/tsconfig.spec.json",
+              "projects/ej050u052-servicios/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej050u052-servicios/e2e/protractor.conf.js",
+            "devServerTarget": "ej050u052-servicios:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej050u052-servicios:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

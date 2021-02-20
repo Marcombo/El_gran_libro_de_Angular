@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-http-client-test',
@@ -43,6 +43,12 @@ export class HttpClientTestComponent implements OnInit {
   }
   delete(){
     this.http.delete('https://jsonplaceholder.typicode.com/posts/1')
+      .subscribe( data => { this.resultadoPeticion = data; } );
+  }
+  get_param() {
+    const headers = new HttpHeaders().set('Autorizacion', 'mi token');
+    const params = new HttpParams().set('userId', '9');
+    this.http.get('https://jsonplaceholder.typicode.com/posts', {headers, params})
       .subscribe( data => { this.resultadoPeticion = data; } );
   }
 }

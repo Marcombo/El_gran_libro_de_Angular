@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders, HttpErrorResponse, HttpRequest, HttpEventType } from '@angular/common/http';
 import { Post } from '../post';
+import { forkJoin } from 'rxjs';
+import { delay, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-http-client-test',
@@ -61,4 +63,31 @@ export class HttpClientTestComponent implements OnInit {
     this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts', {headers, params})
       .subscribe( data => { this.resultadoPeticion = data; } );
   }
+  peti_paral() {
+    forkJoin([
+       this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/4').pipe(delay(3000)),
+       this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/5')
+    ]).subscribe( data => { this.resultadoPeticion = data;} );
+  }
+  peti_sec() {
+   this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/1')
+     .pipe(switchMap( data => {
+        data.title = "(MODIFICADO) " + data.title;
+        return this.http.put<Post>('https://jsonplaceholder.typicode.com/posts/1',data)}))
+     .subscribe( data => { this.resultadoPeticion = data;} );
+  }
+  post_prgEvents() {
+      const request = new HttpRequest("POST", "https://jsonplaceholder.typicode.com/posts", {title: 'Crítica de la película', body: 'Me ha gustado mucho.', userId: 1}, {reportProgress: true});
+      this.http.request(request)
+          .subscribe(
+              event => {
+                  if (event.type === HttpEventType.UploadProgress) {
+                      const percentDone = event.total ? Math.round(100 * event.loaded / event.total) : '?';
+                      console.log(`Fichero transferido en un ${percentDone}%`);
+                  } else if (event.type === HttpEventType.Response) {
+                      this.resultadoPeticion = event.body;
+                  }
+              }
+          );
+    }
 }

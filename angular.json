@@ -3370,6 +3370,122 @@
           }
         }
       }
+    },
+    "ej054u060-http": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej054u060-http",
+      "sourceRoot": "projects/ej054u060-http/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej054u060-http",
+            "index": "projects/ej054u060-http/src/index.html",
+            "main": "projects/ej054u060-http/src/main.ts",
+            "polyfills": "projects/ej054u060-http/src/polyfills.ts",
+            "tsConfig": "projects/ej054u060-http/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej054u060-http/src/favicon.ico",
+              "projects/ej054u060-http/src/assets"
+            ],
+            "styles": [
+              "projects/ej054u060-http/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej054u060-http/src/environments/environment.ts",
+                  "with": "projects/ej054u060-http/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej054u060-http:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej054u060-http:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej054u060-http:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej054u060-http/src/test.ts",
+            "polyfills": "projects/ej054u060-http/src/polyfills.ts",
+            "tsConfig": "projects/ej054u060-http/tsconfig.spec.json",
+            "karmaConfig": "projects/ej054u060-http/karma.conf.js",
+            "assets": [
+              "projects/ej054u060-http/src/favicon.ico",
+              "projects/ej054u060-http/src/assets"
+            ],
+            "styles": [
+              "projects/ej054u060-http/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej054u060-http/tsconfig.app.json",
+              "projects/ej054u060-http/tsconfig.spec.json",
+              "projects/ej054u060-http/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej054u060-http/e2e/protractor.conf.js",
+            "devServerTarget": "ej054u060-http:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej054u060-http:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

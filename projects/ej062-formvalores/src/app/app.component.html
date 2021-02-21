@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1><br>
+<div class="row p-2">
+  <div class="container p-1 mx-3 marco col-5">
+    <form (ngSubmit)="onSubmit()" #miForm="ngForm">
+      <div class="form-group">
+        <label for="codigo">Codigo</label>
+        <input type="text" class="form-control" maxlength="6"
+        [(ngModel)]="codigo" name="codigo" #cod
+        (change)="mostrarVar()">
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control"
+        placeholder="Por favor, introduzca nombre."
+        [(ngModel)]="nombre" name="nombre"
+        (change)="mostrarVar()">
+      </div>
+      <div class="form-group">
+        <label for="edad">Edad</label>
+        <input type="number" class="form-control"
+        value="20" min="15" max="65" placeholder="Introduzca edad (15-65)"
+        [(ngModel)]="edad" name="edad"
+        (change)="mostrarVar()">
+      </div>
+      <div class="form-group">
+        <label for="opcion">Opcion</label>
+        <select class="form-control"
+        [(ngModel)]="opcion" name="opcion"
+        (change)="mostrarVar()">
+          <option value="1">Uno</option>
+          <option value="2">Dos</option>
+          <option value="3">Tres</option>
+        </select>
+      </div>
+      <label>Sexo</label><br>
+      <div class="form-group">
+        <label><input class="mx-1" type="radio"
+          [(ngModel)]="sexo" name="sexo" value="hombre"
+          (change)="mostrarVar()">Hombre</label>
+        <label><input class="mx-1" type="radio"
+          [(ngModel)]="sexo" name="sexo" value="mujer"
+          (change)="mostrarVar()">Mujer</label>
+      </div>
+      <div class="form-group">
+        <label for="comentarios">Comentarios</label>
+        <div class="textarea-btn-holder form-group form-group-replace">
+          <textarea class="form-control text-comment"
+          [(ngModel)]="comentarios" name="comentarios"
+          (change)="mostrarVar()"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <label><input class="mx-1" type="checkbox"
+          [(ngModel)]="activar" name="activar"
+          (change)="mostrarVar()" >Activar</label>
+      </div>
+      <button type="submit" class="btn btn-primary m-x-2">Submit</button>
+    </form>
+  </div>
+
+  <div class="container col-5">
+    <!-- Para mostrar contenido de las variables -->
+    Cod: {{ cod.value }}<br>
+    Codigo: {{ codigo }}<br>
+    Nombre: {{ nombre }}<br>
+    Edad: {{ edad }}<br>
+    Opcion: {{ opcion }}<br>
+    Sexo: {{ sexo }}<br>
+    Comentarios: {{ comentarios }}<br>
+    Activar: {{ activar }}<br>
+    miForm {{ miForm.value | json }}
+  </div>
+</div>

@@ -3834,6 +3834,122 @@
           }
         }
       }
+    },
+    "ej064-formvalida": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej064-formvalida",
+      "sourceRoot": "projects/ej064-formvalida/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej064-formvalida",
+            "index": "projects/ej064-formvalida/src/index.html",
+            "main": "projects/ej064-formvalida/src/main.ts",
+            "polyfills": "projects/ej064-formvalida/src/polyfills.ts",
+            "tsConfig": "projects/ej064-formvalida/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej064-formvalida/src/favicon.ico",
+              "projects/ej064-formvalida/src/assets"
+            ],
+            "styles": [
+              "projects/ej064-formvalida/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej064-formvalida/src/environments/environment.ts",
+                  "with": "projects/ej064-formvalida/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej064-formvalida:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej064-formvalida:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej064-formvalida:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej064-formvalida/src/test.ts",
+            "polyfills": "projects/ej064-formvalida/src/polyfills.ts",
+            "tsConfig": "projects/ej064-formvalida/tsconfig.spec.json",
+            "karmaConfig": "projects/ej064-formvalida/karma.conf.js",
+            "assets": [
+              "projects/ej064-formvalida/src/favicon.ico",
+              "projects/ej064-formvalida/src/assets"
+            ],
+            "styles": [
+              "projects/ej064-formvalida/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej064-formvalida/tsconfig.app.json",
+              "projects/ej064-formvalida/tsconfig.spec.json",
+              "projects/ej064-formvalida/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej064-formvalida/e2e/protractor.conf.js",
+            "devServerTarget": "ej064-formvalida:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej064-formvalida:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

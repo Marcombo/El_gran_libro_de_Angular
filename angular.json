@@ -3718,6 +3718,122 @@
           }
         }
       }
+    },
+    "ej063-formestado": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej063-formestado",
+      "sourceRoot": "projects/ej063-formestado/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej063-formestado",
+            "index": "projects/ej063-formestado/src/index.html",
+            "main": "projects/ej063-formestado/src/main.ts",
+            "polyfills": "projects/ej063-formestado/src/polyfills.ts",
+            "tsConfig": "projects/ej063-formestado/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej063-formestado/src/favicon.ico",
+              "projects/ej063-formestado/src/assets"
+            ],
+            "styles": [
+              "projects/ej063-formestado/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej063-formestado/src/environments/environment.ts",
+                  "with": "projects/ej063-formestado/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej063-formestado:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej063-formestado:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej063-formestado:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej063-formestado/src/test.ts",
+            "polyfills": "projects/ej063-formestado/src/polyfills.ts",
+            "tsConfig": "projects/ej063-formestado/tsconfig.spec.json",
+            "karmaConfig": "projects/ej063-formestado/karma.conf.js",
+            "assets": [
+              "projects/ej063-formestado/src/favicon.ico",
+              "projects/ej063-formestado/src/assets"
+            ],
+            "styles": [
+              "projects/ej063-formestado/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej063-formestado/tsconfig.app.json",
+              "projects/ej063-formestado/tsconfig.spec.json",
+              "projects/ej063-formestado/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej063-formestado/e2e/protractor.conf.js",
+            "devServerTarget": "ej063-formestado:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej063-formestado:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

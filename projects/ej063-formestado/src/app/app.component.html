@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1><br>
+<div class="container-fluid m-1 p-1 marco">
+    <form #miForm="ngForm">
+        <div class="form-group">
+            <label for="codigo">Codigo</label>
+            <input type="text" class="form-control" name="codigo" ngModel #codigo required>
+        </div>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" ngModel #nombre>
+        </div>
+        <div ngModelGroup="contacto" #contacto="ngModelGroup">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" ngModel #email>
+          </div>
+          <div class="form-group">
+            <label for="movil">Movil</label>
+            <input type="number" class="form-control" name="movil" ngModel #movil>
+          </div>
+        </div>
+    </form>
+</div>
+<div class="container-fluid fondo p-1 m-1">
+  Codigo clases: <b>{{ codigo.className }}</b><br>
+  Nombre clases: <b>{{ nombre.className }}</b><br>
+  Email clases: <b>{{ email.className }}</b><br>
+  Movil clases: <b>{{ movil.className }}</b><br>
+  Codigo: <b>{{ codigo.value }}</b><br>
+  Nombre: <b>{{ nombre.value }}</b><br>
+  Email : <b>{{ email.value }}</b><br>
+  Movil : <b>{{ movil.value }}</b><br>
+  Form  : <b>{{ miForm.value | json }}</b>
+</div>

@@ -23,10 +23,10 @@
     </form>
 </div>
 <div class="container-fluid fondo p-1 m-1">
-  Codigo clases: <b>{{ codigo.className }}</b><br>
-  Nombre clases: <b>{{ nombre.className }}</b><br>
-  Email clases: <b>{{ email.className }}</b><br>
-  Movil clases: <b>{{ movil.className }}</b><br>
+  Codigo clases: <b>{{ codigoClassName | async }}</b><br>
+  Nombre clases: <b>{{ nombreClassName | async }}</b><br>
+  Email clases: <b>{{ emailClassName | async }}</b><br>
+  Movil clases: <b>{{ movilClassName | async }}</b><br>
   Codigo: <b>{{ codigo.value }}</b><br>
   Nombre: <b>{{ nombre.value }}</b><br>
   Email : <b>{{ email.value }}</b><br>

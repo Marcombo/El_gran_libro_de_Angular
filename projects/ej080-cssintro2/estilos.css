@@ -1,0 +1,40 @@
+body { background-color: #CEF6F5; }
+h1 {font-family: arial, verdana, sans-serif;}
+span, h1 {color: blue;}
+a:link { color: #04B404; }
+a:visited { color: red; }
+a:hover { color: yellow;
+  font-weight: bold;
+  font-size: 30px;
+}
+div{
+  margin: 5px;
+  padding: 20px;
+  border-width: 4;
+  border-style: double;
+  border-color: #0A5B05;
+  font-size: 15px;
+}
+.especial{
+  background-color: #63E31E;
+  border-color: black;
+  font-weight: bold;
+}
+#dos{
+  color: green;
+  background-color: #F2F5A9;
+  position:absolute;
+  bottom: 50px;
+  right: 50px;
+}
+div:hover.especial, h1:hover {
+  color: blue;
+  background-color: #2E9AFE;
+  border-color: black;
+  font-weight: bold;
+}
+div:hover#dos{
+  color: blue;
+  background-color: #F29D1B;
+  font-weight: bold;
+}

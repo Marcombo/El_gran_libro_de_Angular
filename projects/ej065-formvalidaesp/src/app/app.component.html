@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1><br>
+<div class="container-fluid marco p-1 m-1">
+  <form #miForm="ngForm">
+    <div class="form-group">
+      <label for="codigo">Codigo</label>
+      <input type="text" class="form-control" name="codigo"
+      ngModel #codigo="ngModel" #_codigo required minlength="3">
+    </div>
+    <div *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
+      <!-- hay errores -->
+      <div *ngIf="codigo.errors?.required" class="alert alert-danger">
+        codigo requerido
+      </div>
+      <div [hidden]="!codigo.errors?.minlength" class="alert alert-danger">
+        Debe tener 3 caracteres como mínimo.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" name="nombre"
+      ngModel #nombre="ngModel" #_nombre required filtrar-caracteres>
+      <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div *ngIf="nombre.errors?.required" class="alert alert-danger">
+          Nombre requerido
+        </div>
+        <div *ngIf="nombre.errors?.filtrarCaracteres" class="alert alert-danger">
+          Solo puede introducir letras de la A a la Z en mayusculas
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success"
+      [disabled]="!miForm.form.valid">Submit</button>
+    </div>
+  </form>
+</div>
+<div class="container-fluid fondo p-1 m-1">
+  <!-- Mostrar propiedades -->
+  Codigo clases: <b>{{ codigoClassName | async }}</b><br>
+  Nombre clases: <b>{{ nombreClassName | async }}</b><br>
+  Codigo: <b>{{ codigo.value }}</b><br>
+  Nombre: <b>{{ nombre.value }}</b><br>
+  Form  : <b>{{ miForm.value | json }}</b>
+</div>

@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<h1>{{title}}</h1><br>
+<div class="container-fluid marco p-1 m-1">
+  <form [formGroup]='form' (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="codigo">Codigo</label>
+      <input type="text" class="form-control"
+      formControlName="codigo" #codigo>
+      <div *ngIf="form.controls.codigo.errors &&
+                  (form.controls.codigo.touched||form.controls.codigo.dirty)">
+        <div *ngIf="form.controls.codigo.errors.required"
+              class="alert alert-danger">
+            Codigo es obligatorio.
+        </div>
+        <div *ngIf="form.controls.codigo.errors.minlength"
+              class="alert alert-danger">
+            Codigo ha de tener 3 caracteres como minimo.
+        </div>
+        <div *ngIf="form.controls.codigo.errors.maxlength"
+              class="alert alert-danger">
+            Codigo ha de tener 6 caracteres como maximo.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control"
+      formControlName="nombre" #nombre>
+      <div *ngIf="form.controls.nombre.errors && (form.controls.nombre.touched||form.controls.nombre.dirty)"
+            class="alert alert-danger">
+          Nombre es obligatorio.
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success"
+      [disabled]="!form.valid">Submit</button>
+    </div>
+  </form>
+</div>
+<div class="container-fluid fondo p-1 m-1">
+  Codigo: {{ codigo.value }}<br>
+  Nombre: {{ nombre.value }}<br>
+  Errores nombre {{form.controls.nombre.errors | json}}<br>
+  {{ form.value | json }}
+</div>

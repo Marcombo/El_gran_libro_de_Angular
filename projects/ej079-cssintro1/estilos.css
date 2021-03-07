@@ -1,0 +1,29 @@
+h1 {
+  color: #2E64FE;
+}
+body {
+    background-color: #58FAAC;
+    background-image: url("img1.jpg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-attachment: fixed;
+}
+h1 {
+  color: #2E64FE;
+}
+h2 {
+  color: red;
+  font-variant: small-caps;
+  font-family: arial, verdana, sans-serif;
+  font-weight: bold;
+}
+h3 {
+  color: yellow;
+  font-style: italic;
+  font-size: 120%;
+}
+p{
+  text-decoration: underline;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}

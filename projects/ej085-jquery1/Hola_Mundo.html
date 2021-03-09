@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>085 jQuery (I)</title>
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function () {
+    $("p").css("color", "blue");
+    $("#miId").css("color", "red");
+    $(".miClase").css("color", "green");
+    $("#bt_fondo").click(function () {
+      $("#bloque").toggleClass("fondo");
+    });
+    $("#bt_marco").click(function () {
+      $("#bloque").toggleClass("marco");
+    });
+  });
+  </script>
+  <style>
+  .fondo { background: #58FAF4; }
+  .marco { color: blue; border-style: solid; border-width: 3px; }
+  </style>
+</head>
+<body>
+  <div id="bloque">
+    Hola Mundo
+    <p>Esto es un parrafo</p>
+    <div id="miId">Esto es un bloque div con identificador</div>
+    <div class="miClase">Esto es un bloque div con clase</div>
+    <br>
+    <input type="button" value="Fondo" id="bt_fondo" />
+    <input type="button" value="Marco" id="bt_marco" />
+  </div>
+</body>
+</html>

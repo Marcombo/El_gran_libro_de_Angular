@@ -4646,6 +4646,122 @@
           }
         }
       }
+    },
+    "ej083-googleherdes": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej083-googleherdes",
+      "sourceRoot": "projects/ej083-googleherdes/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej083-googleherdes",
+            "index": "projects/ej083-googleherdes/src/index.html",
+            "main": "projects/ej083-googleherdes/src/main.ts",
+            "polyfills": "projects/ej083-googleherdes/src/polyfills.ts",
+            "tsConfig": "projects/ej083-googleherdes/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej083-googleherdes/src/favicon.ico",
+              "projects/ej083-googleherdes/src/assets"
+            ],
+            "styles": [
+              "projects/ej083-googleherdes/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej083-googleherdes/src/environments/environment.ts",
+                  "with": "projects/ej083-googleherdes/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej083-googleherdes:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej083-googleherdes:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej083-googleherdes:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej083-googleherdes/src/test.ts",
+            "polyfills": "projects/ej083-googleherdes/src/polyfills.ts",
+            "tsConfig": "projects/ej083-googleherdes/tsconfig.spec.json",
+            "karmaConfig": "projects/ej083-googleherdes/karma.conf.js",
+            "assets": [
+              "projects/ej083-googleherdes/src/favicon.ico",
+              "projects/ej083-googleherdes/src/assets"
+            ],
+            "styles": [
+              "projects/ej083-googleherdes/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej083-googleherdes/tsconfig.app.json",
+              "projects/ej083-googleherdes/tsconfig.spec.json",
+              "projects/ej083-googleherdes/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej083-googleherdes/e2e/protractor.conf.js",
+            "devServerTarget": "ej083-googleherdes:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej083-googleherdes:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

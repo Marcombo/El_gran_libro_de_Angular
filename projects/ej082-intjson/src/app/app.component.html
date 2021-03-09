@@ -1,0 +1,29 @@
+<div>
+  <h1>{{title}}</h1>
+  <div class="divEjemplo">
+    <span class="verde ">persona:</span><br>
+    <div class="divPerson">{{ persona | json }}</div>
+    <div class="divPerson">Codigo: <b>{{ persona.codigo }}</b></div>
+    <div class="divPerson">Nombre: <b>{{ persona.nombre }}</b></div>
+    <div class="divPerson">Aficiones: <b>{{ persona.aficiones }}</b></div>
+  </div>
+  <div class="divEjemplo">
+    <span class="verde">personas:</span>
+    <div class="divPerson">{{ personas | json }}</div>
+    <span class="verde">persona 1:</span>
+    <div class="divPerson">{{ personas[0] | json }}</div>
+    <span class="verde">persona 2:</span>
+    <div class="divPerson">{{ personas[1] | json }}</div>
+    <span class="verde">persona 3:</span>
+    <div class="divPerson">{{ personas[2] | json }}</div>
+  </div>
+  <div class="divPersonas container" *ngFor="let persona of personas; let i = index">
+      <span class="verde">persona {{ i + 1 }}:</span>
+      <div class="divPerson container">
+          Codigo:
+          <b>{{ persona.codigo }}</b>
+          <br> Nombre:
+          <b>{{ persona.nombre }}</b>
+      </div>
+  </div>     
+</div>

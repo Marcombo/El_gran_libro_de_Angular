@@ -1,0 +1,11 @@
+.verde { color: green; padding: 2px; margin: 2px;
+         font-weight: bold; font-size: 20px; }
+.divEjemplo { padding: 2px; margin: 2px;
+              border: 2px solid blue;
+              background-color: #CEF6F5; }
+.divPersonas { padding: 2px; margin: 2px;
+              border: 2px solid blue;
+              background-color: #A9E2F3; }
+.divPerson { padding: 2px; margin: 2px;
+             border: 1px solid green;
+             background-color: #81BEF7; }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>085 jQuery (II)</title>
+  <script type = "text/javascript" src = "jquery.js"> </script>
+  <script type = "text/javascript">
+  $(document).ready(function(){
+    var vel1 = 4000; var vel2 = 100; var vd1 = false;
+    $("#b_animate").click(function () {
+      resaltar("animate");
+      vd1 = !vd1;
+      $("#d1").animate({height: "toggle",width: "toggle"}, vel1);
+      $("#d2").animate({height: "toggle",width: "toggle"}, vel1);
+    });
+    $("#b_delay").click(function () {
+      resaltar("delay-slideToggle");
+      if (!vd1) {
+        $("#d1").delay(vel2).slideToggle(function (){ $("#d2").delay(vel2).slideToggle(); });
+      } else {
+        $("#d2").delay(vel2).slideToggle(function () { $("#d1").delay(vel2).slideToggle();});
+      }
+    });
+    $("#b_hide").click(function(){ $("#d1").hide(); resaltar("hide"); });
+    $("#b_show").click(function(){ $("#d1").show(); resaltar("show"); });
+    $("#b_toggle").click(function(){$("#d1").toggle();resaltar("toggle");});
+    $("#b_reset").click(function(){location.reload();});
+    function resaltar(texto){
+      $("#res").html(texto).fadeOut(1000,'linear',function(){
+        $(this).html("").fadeIn();
+      });
+    }
+  });
+  </script>
+  <style>
+  div {width: 240px;height:90px;background-color:#00BFFF; margin:1px; padding:1px; border-style:groove;border-width:5px; font-size:18px;}
+  div#d1  {width: 220px;height:70px;background-color:#40FF00; margin:4px; padding:1px; border-style:groove;border-width:5px; font-size:18px;}
+  div#msg {width: 240px;height:30px;background-color:#80FF00; margin:1px; padding:1px; border-style:solid; border-width:5px; font-size:25px;border-color:#0000FF;text-align:center;}
+  .cb     {width: 80px; height:30px;}
+  .cbr    {width: 254px; height:30px;}
+  </style>
+</head>
+<body>
+  <center>
+    <table border=1 bgcolor="#A9F5F2">
+      <tr><td colspan=3><div><div id="d1"></div></div></td></tr>
+      <tr>
+        <td><input type="button" value="hide()" id="b_hide" class="cb"/></td>
+        <td><input type="button" value="show()" id="b_show" class="cb"/></td>
+        <td><input type="button" value="toggle()" id="b_toggle" class="cb"/></td>
+      </tr>
+      <tr>
+        <td><input type="button" value="animate()" id="b_animate" class="cb" /></td>
+        <td><input type="button" value="delay()" id="b_delay" class="cb" /></td>
+      </tr>
+
+      <tr>
+        <td colspan=3><div id="msg"><font color="red"><span id="res"/></font></div></td>
+      </tr>
+      <tr>
+        <td colspan=3><input type="button" value="reset" id="b_reset" class="cbr"/></td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>

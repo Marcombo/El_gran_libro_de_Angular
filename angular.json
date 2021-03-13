@@ -5579,6 +5579,127 @@
           }
         }
       }
+    },
+    "ej094-btcarousel": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej094-btcarousel",
+      "sourceRoot": "projects/ej094-btcarousel/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej094-btcarousel",
+            "index": "projects/ej094-btcarousel/src/index.html",
+            "main": "projects/ej094-btcarousel/src/main.ts",
+            "polyfills": "projects/ej094-btcarousel/src/polyfills.ts",
+            "tsConfig": "projects/ej094-btcarousel/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej094-btcarousel/src/favicon.ico",
+              "projects/ej094-btcarousel/src/assets"
+            ],
+            "styles": [
+              "projects/ej094-btcarousel/src/styles.css",
+              "projects/ej094-btcarousel/src/assets/bootstrap4/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "projects/ej094-btcarousel/src/assets/jquery/jquery-3.2.1.slim.min.js",
+              "projects/ej094-btcarousel/src/assets/tether/tether.min.js",
+              "projects/ej094-btcarousel/src/assets/bootstrap4/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej094-btcarousel/src/environments/environment.ts",
+                  "with": "projects/ej094-btcarousel/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej094-btcarousel:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej094-btcarousel:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej094-btcarousel:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej094-btcarousel/src/test.ts",
+            "polyfills": "projects/ej094-btcarousel/src/polyfills.ts",
+            "tsConfig": "projects/ej094-btcarousel/tsconfig.spec.json",
+            "karmaConfig": "projects/ej094-btcarousel/karma.conf.js",
+            "assets": [
+              "projects/ej094-btcarousel/src/favicon.ico",
+              "projects/ej094-btcarousel/src/assets"
+            ],
+            "styles": [
+              "projects/ej094-btcarousel/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej094-btcarousel/tsconfig.app.json",
+              "projects/ej094-btcarousel/tsconfig.spec.json",
+              "projects/ej094-btcarousel/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej094-btcarousel/e2e/protractor.conf.js",
+            "devServerTarget": "ej094-btcarousel:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej094-btcarousel:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

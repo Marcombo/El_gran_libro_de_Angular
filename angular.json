@@ -5458,6 +5458,127 @@
           }
         }
       }
+    },
+    "ej093-btinslocal": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej093-btinslocal",
+      "sourceRoot": "projects/ej093-btinslocal/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej093-btinslocal",
+            "index": "projects/ej093-btinslocal/src/index.html",
+            "main": "projects/ej093-btinslocal/src/main.ts",
+            "polyfills": "projects/ej093-btinslocal/src/polyfills.ts",
+            "tsConfig": "projects/ej093-btinslocal/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej093-btinslocal/src/favicon.ico",
+              "projects/ej093-btinslocal/src/assets"
+            ],
+            "styles": [
+              "projects/ej093-btinslocal/src/styles.css",
+              "projects/ej093-btinslocal/src/assets/bootstrap4/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "projects/ej093-btinslocal/src/assets/jquery/jquery-3.2.1.slim.min.js",
+              "projects/ej093-btinslocal/src/assets/tether/tether.min.js",
+              "projects/ej093-btinslocal/src/assets/bootstrap4/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej093-btinslocal/src/environments/environment.ts",
+                  "with": "projects/ej093-btinslocal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej093-btinslocal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej093-btinslocal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej093-btinslocal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej093-btinslocal/src/test.ts",
+            "polyfills": "projects/ej093-btinslocal/src/polyfills.ts",
+            "tsConfig": "projects/ej093-btinslocal/tsconfig.spec.json",
+            "karmaConfig": "projects/ej093-btinslocal/karma.conf.js",
+            "assets": [
+              "projects/ej093-btinslocal/src/favicon.ico",
+              "projects/ej093-btinslocal/src/assets"
+            ],
+            "styles": [
+              "projects/ej093-btinslocal/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej093-btinslocal/tsconfig.app.json",
+              "projects/ej093-btinslocal/tsconfig.spec.json",
+              "projects/ej093-btinslocal/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej093-btinslocal/e2e/protractor.conf.js",
+            "devServerTarget": "ej093-btinslocal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej093-btinslocal:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

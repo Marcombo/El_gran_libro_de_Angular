@@ -4994,6 +4994,122 @@
           }
         }
       }
+    },
+    "ej089-bttables": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej089-bttables",
+      "sourceRoot": "projects/ej089-bttables/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej089-bttables",
+            "index": "projects/ej089-bttables/src/index.html",
+            "main": "projects/ej089-bttables/src/main.ts",
+            "polyfills": "projects/ej089-bttables/src/polyfills.ts",
+            "tsConfig": "projects/ej089-bttables/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej089-bttables/src/favicon.ico",
+              "projects/ej089-bttables/src/assets"
+            ],
+            "styles": [
+              "projects/ej089-bttables/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej089-bttables/src/environments/environment.ts",
+                  "with": "projects/ej089-bttables/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej089-bttables:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej089-bttables:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej089-bttables:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej089-bttables/src/test.ts",
+            "polyfills": "projects/ej089-bttables/src/polyfills.ts",
+            "tsConfig": "projects/ej089-bttables/tsconfig.spec.json",
+            "karmaConfig": "projects/ej089-bttables/karma.conf.js",
+            "assets": [
+              "projects/ej089-bttables/src/favicon.ico",
+              "projects/ej089-bttables/src/assets"
+            ],
+            "styles": [
+              "projects/ej089-bttables/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej089-bttables/tsconfig.app.json",
+              "projects/ej089-bttables/tsconfig.spec.json",
+              "projects/ej089-bttables/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej089-bttables/e2e/protractor.conf.js",
+            "devServerTarget": "ej089-bttables:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej089-bttables:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

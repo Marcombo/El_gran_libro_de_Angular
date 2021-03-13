@@ -5226,6 +5226,122 @@
           }
         }
       }
+    },
+    "ej091-btbuttonsb": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej091-btbuttonsb",
+      "sourceRoot": "projects/ej091-btbuttonsb/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej091-btbuttonsb",
+            "index": "projects/ej091-btbuttonsb/src/index.html",
+            "main": "projects/ej091-btbuttonsb/src/main.ts",
+            "polyfills": "projects/ej091-btbuttonsb/src/polyfills.ts",
+            "tsConfig": "projects/ej091-btbuttonsb/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej091-btbuttonsb/src/favicon.ico",
+              "projects/ej091-btbuttonsb/src/assets"
+            ],
+            "styles": [
+              "projects/ej091-btbuttonsb/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej091-btbuttonsb/src/environments/environment.ts",
+                  "with": "projects/ej091-btbuttonsb/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej091-btbuttonsb:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej091-btbuttonsb:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej091-btbuttonsb:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej091-btbuttonsb/src/test.ts",
+            "polyfills": "projects/ej091-btbuttonsb/src/polyfills.ts",
+            "tsConfig": "projects/ej091-btbuttonsb/tsconfig.spec.json",
+            "karmaConfig": "projects/ej091-btbuttonsb/karma.conf.js",
+            "assets": [
+              "projects/ej091-btbuttonsb/src/favicon.ico",
+              "projects/ej091-btbuttonsb/src/assets"
+            ],
+            "styles": [
+              "projects/ej091-btbuttonsb/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej091-btbuttonsb/tsconfig.app.json",
+              "projects/ej091-btbuttonsb/tsconfig.spec.json",
+              "projects/ej091-btbuttonsb/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej091-btbuttonsb/e2e/protractor.conf.js",
+            "devServerTarget": "ej091-btbuttonsb:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej091-btbuttonsb:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

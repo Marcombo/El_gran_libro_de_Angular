@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <h1>{{title}}</h1>
+  <p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#uno" aria-expanded="false" aria-controls="uno">
+      Uno Con Ref
+    </a>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#uno" aria-expanded="false" aria-controls="uno">
+      Uno con boton
+    </button>
+  </p>
+  <div class="collapse" id="uno">
+    <div class="card card-block">
+      Mi bloque uno
+      <p>
+        <a class="btn btn-primary" data-toggle="collapse" href="#dos" aria-expanded="false" aria-controls="dos">
+          Dos Con Ref
+        </a>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#tres" aria-expanded="false" aria-controls="tres">
+          Tres con boton
+        </button>
+      </p>
+      <div class="collapse" id="dos">
+        <div class="card card-block">
+          Mi bloque dos
+        </div>
+      </div>
+      <div class="collapse" id="tres">
+        <div class="card card-block">
+          Mi bloque tres
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

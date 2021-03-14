@@ -5700,6 +5700,127 @@
           }
         }
       }
+    },
+    "ej095-btcollapse": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej095-btcollapse",
+      "sourceRoot": "projects/ej095-btcollapse/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej095-btcollapse",
+            "index": "projects/ej095-btcollapse/src/index.html",
+            "main": "projects/ej095-btcollapse/src/main.ts",
+            "polyfills": "projects/ej095-btcollapse/src/polyfills.ts",
+            "tsConfig": "projects/ej095-btcollapse/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej095-btcollapse/src/favicon.ico",
+              "projects/ej095-btcollapse/src/assets"
+            ],
+            "styles": [
+              "projects/ej095-btcollapse/src/styles.css",
+              "projects/ej095-btcollapse/src/assets/bootstrap4/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "projects/ej095-btcollapse/src/assets/jquery/jquery-3.2.1.slim.min.js",
+              "projects/ej095-btcollapse/src/assets/tether/tether.min.js",
+              "projects/ej095-btcollapse/src/assets/bootstrap4/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej095-btcollapse/src/environments/environment.ts",
+                  "with": "projects/ej095-btcollapse/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej095-btcollapse:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej095-btcollapse:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej095-btcollapse:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej095-btcollapse/src/test.ts",
+            "polyfills": "projects/ej095-btcollapse/src/polyfills.ts",
+            "tsConfig": "projects/ej095-btcollapse/tsconfig.spec.json",
+            "karmaConfig": "projects/ej095-btcollapse/karma.conf.js",
+            "assets": [
+              "projects/ej095-btcollapse/src/favicon.ico",
+              "projects/ej095-btcollapse/src/assets"
+            ],
+            "styles": [
+              "projects/ej095-btcollapse/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej095-btcollapse/tsconfig.app.json",
+              "projects/ej095-btcollapse/tsconfig.spec.json",
+              "projects/ej095-btcollapse/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej095-btcollapse/e2e/protractor.conf.js",
+            "devServerTarget": "ej095-btcollapse:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej095-btcollapse:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

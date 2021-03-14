@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <div class="list-group p-1">
+    <a href="#" class="list-group-item list-group-item-action justify-content-between" (click)="onClick('Azul')">Azul
+      <span class="badge badge-default badge-pill">{{ num1 }}</span></a>
+    <a href="#" class="list-group-item list-group-item-action justify-content-between" (click)="onClick('Verde')">Verde
+      <span class="badge badge-default badge-pill">{{ num2 }}</span></a>
+    <a href="#" class="list-group-item list-group-item-action justify-content-between" (click)="onClick('Amarillo')">Amarillo
+      <span class="badge badge-default badge-pill">{{ num3 }}</span></a>
+  </div>
+  <div class="col text-center" [ngStyle]="{'background-color': color1, 'font-size': '130%'}">Opcion: <b>{{ res1 }}</b></div>
+</div>

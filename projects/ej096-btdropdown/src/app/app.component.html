@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <div class="row ">
+    <div class="col col-5 borde m-1 p-1">
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle w-100 btn-sm" type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Dropdown</button>
+        <div class="dropdown-menu" aria-labelledby="menu1">
+          <button class="dropdown-item" type="button" (click)="onClick('Azul')">Azul</button>
+          <button class="dropdown-item" type="button" (click)="onClick('Verde')">Verde</button>
+          <button class="dropdown-item" type="button" (click)="onClick('Amarillo')">Amarillo</button>
+        </div>
+      </div>
+    </div>
+    <div class="col col-5 m-1 p-1 borde text-center" [ngStyle]="{'background-color': color1, 'font-size': '130%'}">Opcion: <b>{{ res1 }}</b></div>
+  </div>
+</div>

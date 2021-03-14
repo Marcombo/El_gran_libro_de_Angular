@@ -5821,6 +5821,127 @@
           }
         }
       }
+    },
+    "ej096-btdropdown": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej096-btdropdown",
+      "sourceRoot": "projects/ej096-btdropdown/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej096-btdropdown",
+            "index": "projects/ej096-btdropdown/src/index.html",
+            "main": "projects/ej096-btdropdown/src/main.ts",
+            "polyfills": "projects/ej096-btdropdown/src/polyfills.ts",
+            "tsConfig": "projects/ej096-btdropdown/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej096-btdropdown/src/favicon.ico",
+              "projects/ej096-btdropdown/src/assets"
+            ],
+            "styles": [
+              "projects/ej096-btdropdown/src/styles.css",
+              "projects/ej096-btdropdown/src/assets/bootstrap4/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "projects/ej096-btdropdown/src/assets/jquery/jquery-3.2.1.slim.min.js",
+              "projects/ej096-btdropdown/src/assets/tether/tether.min.js",
+              "projects/ej096-btdropdown/src/assets/bootstrap4/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej096-btdropdown/src/environments/environment.ts",
+                  "with": "projects/ej096-btdropdown/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej096-btdropdown:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej096-btdropdown:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej096-btdropdown:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej096-btdropdown/src/test.ts",
+            "polyfills": "projects/ej096-btdropdown/src/polyfills.ts",
+            "tsConfig": "projects/ej096-btdropdown/tsconfig.spec.json",
+            "karmaConfig": "projects/ej096-btdropdown/karma.conf.js",
+            "assets": [
+              "projects/ej096-btdropdown/src/favicon.ico",
+              "projects/ej096-btdropdown/src/assets"
+            ],
+            "styles": [
+              "projects/ej096-btdropdown/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej096-btdropdown/tsconfig.app.json",
+              "projects/ej096-btdropdown/tsconfig.spec.json",
+              "projects/ej096-btdropdown/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej096-btdropdown/e2e/protractor.conf.js",
+            "devServerTarget": "ej096-btdropdown:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej096-btdropdown:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"

@@ -6184,6 +6184,127 @@
           }
         }
       }
+    },
+    "ej099-btnavbar": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ej099-btnavbar",
+      "sourceRoot": "projects/ej099-btnavbar/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ej099-btnavbar",
+            "index": "projects/ej099-btnavbar/src/index.html",
+            "main": "projects/ej099-btnavbar/src/main.ts",
+            "polyfills": "projects/ej099-btnavbar/src/polyfills.ts",
+            "tsConfig": "projects/ej099-btnavbar/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ej099-btnavbar/src/favicon.ico",
+              "projects/ej099-btnavbar/src/assets"
+            ],
+            "styles": [
+              "projects/ej099-btnavbar/src/styles.css",
+              "projects/ej099-btnavbar/src/assets/bootstrap4/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "projects/ej099-btnavbar/src/assets/jquery/jquery-3.2.1.slim.min.js",
+              "projects/ej099-btnavbar/src/assets/tether/tether.min.js",
+              "projects/ej099-btnavbar/src/assets/bootstrap4/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ej099-btnavbar/src/environments/environment.ts",
+                  "with": "projects/ej099-btnavbar/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ej099-btnavbar:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ej099-btnavbar:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ej099-btnavbar:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ej099-btnavbar/src/test.ts",
+            "polyfills": "projects/ej099-btnavbar/src/polyfills.ts",
+            "tsConfig": "projects/ej099-btnavbar/tsconfig.spec.json",
+            "karmaConfig": "projects/ej099-btnavbar/karma.conf.js",
+            "assets": [
+              "projects/ej099-btnavbar/src/favicon.ico",
+              "projects/ej099-btnavbar/src/assets"
+            ],
+            "styles": [
+              "projects/ej099-btnavbar/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ej099-btnavbar/tsconfig.app.json",
+              "projects/ej099-btnavbar/tsconfig.spec.json",
+              "projects/ej099-btnavbar/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ej099-btnavbar/e2e/protractor.conf.js",
+            "devServerTarget": "ej099-btnavbar:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ej099-btnavbar:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ej071u078-mean"
